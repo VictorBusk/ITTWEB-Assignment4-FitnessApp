@@ -1,0 +1,33 @@
+<mat-table #table [dataSource]="dataSource">
+
+  <ng-container matColumnDef="_id">
+    <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element._id }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.email }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="options">
+    <mat-header-cell *matHeaderCellDef> Options </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <button mat-button (click)="openEditDialog(element);">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-button (click)="openDeleteDialog(element);">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="[ 'name', 'email', 'options']"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: [ 'name', 'email', 'options'];"></mat-row>
+
+</mat-table>

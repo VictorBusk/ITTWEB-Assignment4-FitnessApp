@@ -1,0 +1,49 @@
+<mat-table #table [dataSource]="dataSource">
+
+  <ng-container matColumnDef="_id">
+    <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element._id }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.description }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="sets">
+    <mat-header-cell *matHeaderCellDef> Sets </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.sets }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="reps">
+    <mat-header-cell *matHeaderCellDef> Reps </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.reps }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="options">
+    <mat-header-cell *matHeaderCellDef class="flex">
+      <span class="flex-fill"></span>
+      <button mat-mini-fab (click)="openNewDialog();" *ngIf="apiService.isAuthenticated();">
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element" class="flex">
+      <span class="flex-fill"></span>
+      <button mat-button (click)="openEditDialog(element);" [disabled]="!apiService.isAuthenticated()">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-button (click)="openDeleteDialog(element);" [disabled]="!apiService.isAuthenticated()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="[ 'name', 'description', 'sets', 'reps', 'options']"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: [ 'name', 'description', 'sets', 'reps', 'options'];"></mat-row>
+
+</mat-table>

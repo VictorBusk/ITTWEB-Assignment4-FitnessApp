@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic';
+@import '~material-design-icons/iconfont/material-icons.css';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+body {
+  margin: 0;
+  background: lightgray;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+.flex-fill {
+  flex: 1 1 auto;
+  align-self: center;
+}
+
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-content {
+  flex: 1;
+  overflow: scroll;
+}

@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>{{titleTxt}}</h2>
+<form #f="ngForm" (ngSubmit)="onSave(f.value);">
+  <mat-dialog-content>
+    <input hidden #_id="ngModel" type="hidden" name="_id" id="_id" [ngModel]="data.user._id" *ngIf="!data.isNew">
+    <mat-form-field>
+      <input matInput required #name="ngModel" type="text" placeholder="User" name="name" id="name" [ngModel]="data.user.name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput required #email="ngModel" type="email" placeholder="Email" name="email" id="email" [ngModel]="data.user.email">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput required #password="ngModel" type="password" placeholder="Password" name="password" id="password" [ngModel]="data.user.password">
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button type="submit" mat-button color="primary"> {{confirmBtn}}</button>
+  </mat-dialog-actions>
+</form>
+

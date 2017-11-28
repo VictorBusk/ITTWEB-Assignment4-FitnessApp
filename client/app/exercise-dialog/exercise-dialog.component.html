@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>{{titleTxt}}</h2>
+<form #f="ngForm" (ngSubmit)="onSave(f.value);">
+  <mat-dialog-content>
+    <input hidden #_id="ngModel" type="hidden" name="_id" id="_id" [ngModel]="data.exercise._id" *ngIf="!data.isNew">
+    <mat-form-field>
+      <input matInput required #name="ngModel" type="text" placeholder="Exercise" name="name" id="name" [ngModel]="data.exercise.name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput required #description="ngModel" type="text" placeholder="Description" name="description" id="description" [ngModel]="data.exercise.description">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput required #sets="ngModel" type="number" placeholder="Sets" name="sets" id="sets" [ngModel]="data.exercise.sets">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput required #reps="ngModel" type="number" placeholder="Reps" name="reps" id="reps" [ngModel]="data.exercise.reps">
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button type="submit" mat-button color="primary"> {{confirmBtn}}</button>
+  </mat-dialog-actions>
+</form>
