@@ -1,3 +1,5 @@
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/jeppestaerk/ITTWEB-Assignment4-FitnessApp)
+
 # IttwebE17FitnessAppClient
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.6.
